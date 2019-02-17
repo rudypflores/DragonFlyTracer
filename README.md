@@ -1,4 +1,4 @@
-## DragonFlyTracer
+# DragonFlyTracer
 A JavaScript web application with the use of the popular framework React, and the Google Maps API. 
 
 ## For More Information Visit the DevPost
