@@ -24,24 +24,39 @@ html {
   font-family:'Lato', Sans-Serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /*Custom*/
 .title {
   text-align: center;
   font-size:5rem;
   color:#0277bd;
   font-weight:bolder;
-  padding:5px; 
+  border-bottom:15px solid #0277bd;
+}
+
+.sub {
+  font-size:2rem;
+  margin:0;
+  margin-top:-70px;
+  padding-bottom:35px;
 }
 
 .google-maps {
   height:100%;
+  background-color:#0277bd;
 }
 
 .description {
-  margin-top:25px;
+  color:white;
+  padding-top:25px;
   font-size:1.7rem;
   text-align: center;
   padding:15px 30px;
+  background-color:#0277bd;
 }
 
 .contributors {
@@ -50,4 +65,17 @@ html {
   font-weight:bolder;
   color:#0277bd;
   padding:15px;
+  cursor:pointer;
+}
+
+.sub-title {
+  color:#006064;
+}
+
+.maps-api {
+  color:#2e7d32;
+}
+
+b {
+  color:#0277bd;
 }
