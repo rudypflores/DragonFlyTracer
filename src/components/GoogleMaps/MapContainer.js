@@ -1,32 +1,10 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import {AddMarker} from './AddMarker';
 
-const AddMarker = ({ text }) => (
-  <div style={{
-    color: 'white', 
-    background: '#0277bd',
-    padding: '15px',
-    width: '35px',
-    display: 'inline-flex',
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '10%',
-    transform: 'translate(-50%, -50%)'
-  }}>
-    {text}
-  </div>
-);
+let name = ['johnny', 'rudy', 'john', 'someone', 'Tommy'];
 
 class MapContainer extends React.Component {
-
-  constructor(props) {
-  	super(props);
-  	this.state = {
-  		lat:this.props.latitude,
-  		lng:this.props.length
-  	};
-  }
 
   static defaultProps = {
     center: {lat: 41.881832, lng: -87.623177},
@@ -37,6 +15,8 @@ class MapContainer extends React.Component {
 	The render function:
 		-To add more markers for the map, use <AddMarker/>
   */
+
+
   render() {
     return (
     	<div style={{ height: '100vh', width: '100%' }}>
@@ -45,11 +25,15 @@ class MapContainer extends React.Component {
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
       >
-        <AddMarker 
-          lat={this.state.lat} 
-          lng={this.state.lng} 
-          text={'Tommy'} 
-        />
+
+        <AddMarker lat={this.props.coordinates[0].latitude} lng={this.props.coordinates[0].longitude} text={name[0]}/>
+        
+        {
+          this.props.coordinates.map(coordinate => {
+            return <AddMarker lat={coordinate.latitude} lng={coordinate.longitude} text={name[0]}/>;
+          })
+        }
+
       </GoogleMapReact>
       </div>
     );
