@@ -1,3 +1,5 @@
+// Simple twitter query
+
 var Twitter = require('twitter');
 var util = require("util");
 
@@ -14,7 +16,6 @@ client.get('search/tweets', { q:'twitter', result_type: 'recent', count: 5}, fun
    
     console.log(tweets[0].statuses.user.location);
 
-   
  }
 });
 
