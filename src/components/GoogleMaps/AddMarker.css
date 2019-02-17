@@ -1,0 +1,13 @@
+
+.AddMarker {
+	color: white;
+	background: #0277bd;
+	padding: 15px;
+	width: 35px;
+	display: inline-flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10%;
+	transform: translate(-50%, -50%);
+}
