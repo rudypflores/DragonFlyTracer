@@ -8,12 +8,16 @@ var client = new Twitter({
  access_token_secret: 'Ru5GuNX42uo5vRUyKroo0oeex00RYIrup26U442Wii4ry'
 });
 
-client.get('statuses/user_timeline', {screen_name: "whitehouse", count: 1}, function(error, tweets, response) {
+// Change count to get more tweets
+client.get('search/tweets', { q:'twitter', result_type: 'recent', count: 5}, function(error, tweets, response) {
  if (!error) {
+   
+    console.log(tweets[0].statuses.user.location);
 
-   for(var i = 0; i < tweets.length; i++) {
-   	
-       console.log(tweets[i].user.location);
-   }
+   
  }
 });
+
+
+
+
