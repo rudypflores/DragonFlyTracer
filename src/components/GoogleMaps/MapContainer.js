@@ -1,58 +1,52 @@
 import React from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import './MapContainerSettings.css';
+import GoogleMapReact from 'google-map-react';
 
-export class MapContainer extends React.Component {
-	state = {
-	    showingInfoWindow: false,
-	    activeMarker: {},
-	    selectedPlace: {},
-	};
+const AddMarker = ({ text }) => (
+  <div style={{
+    color: 'white', 
+    background: '#0277bd',
+    padding: '15px',
+    width: '35px',
+    display: 'inline-flex',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '10%',
+    transform: 'translate(-50%, -50%)'
+  }}>
+    {text}
+  </div>
+);
 
-  	onMarkerClick = (props, marker, e) =>
-	    this.setState({
-	      selectedPlace: props,
-	      activeMarker: marker,
-	      showingInfoWindow: true
-    });
+class MapContainer extends React.Component {
+  static defaultProps = {
+    center: {lat: 59.95, lng: 30.33},
+    zoom: 15
+  };
 
-	onMapClicked = (props) => {
-	    if (this.state.showingInfoWindow) {
-	      this.setState({
-	        showingInfoWindow: false,
-	        activeMarker: null
-	      })
-	    }
-	};
+  
 
-	translateToGeocode() {
-
-	}
-
-	//Add more elements with <marker/> tag
-  	render() {
-    	return (
-      		<Map google={window.google}
-			    style={{width: '100%', height: '60%'}}
-			    className={'map'}
-			    zoom={14}>
-			  <Marker
-			    title={'The marker`s title will appear as a tooltip.'}
-			    name={'SOMA'}
-			    position={{lat: 37.778519, lng: -122.405640}} />
-			  <Marker
-			    name={'Dolores park'}
-			    position={{lat: 37.759703, lng: -122.428093}} />
-			  <Marker />
-			  <Marker
-			    name={'New York City'}
-			    position={{lat:40.7128 , lng: -74.0060}} />
-			  <Marker />
-			</Map>
-    )
+  /*
+	The render function:
+		-To add more markers for the map, use <AddMarker/>
+  */
+  render() {
+    return (
+    	<div style={{ height: '100vh', width: '100%' }}>
+       <GoogleMapReact
+       	bootstrapURLKeys={{ key: 'AIzaSyAa8YlFzBtsS8LsfVMlnSmhEM6V2MCRqMo'}}
+        defaultCenter={this.props.center}
+        defaultZoom={this.props.zoom}
+      >
+        <AddMarker 
+          lat={59.955413} 
+          lng={30.337844} 
+          text={'Tommy'} 
+        />
+      </GoogleMapReact>
+      </div>
+    );
   }
 }
 
-export default GoogleApiWrapper({
-	apiKey:('AIzaSyAa8YlFzBtsS8LsfVMlnSmhEM6V2MCRqMo')
-})(MapContainer)
+export default MapContainer;
