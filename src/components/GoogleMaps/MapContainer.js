@@ -5,8 +5,8 @@ import {AddMarker} from './AddMarker';
 class MapContainer extends React.Component {
 
   static defaultProps = {
-    center: {lat: 41.881832, lng: -87.623177},
-    zoom: 15
+    center: {lat: 25, lng: 32},
+    zoom: 0
   };
 
   /*
@@ -17,7 +17,7 @@ class MapContainer extends React.Component {
 
   render() {
     return (
-    	<div style={{ height: '60vh', width: '100%' }}>
+    	<div style={{ height: '70vh', width: '100%' }}>
        <GoogleMapReact
        	bootstrapURLKeys={{ key: 'AIzaSyAa8YlFzBtsS8LsfVMlnSmhEM6V2MCRqMo'}}
         defaultCenter={this.props.center}
