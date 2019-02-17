@@ -19,12 +19,19 @@ const AddMarker = ({ text }) => (
 );
 
 class MapContainer extends React.Component {
+
+  constructor(props) {
+  	super(props);
+  	this.state = {
+  		lat:this.props.latitude,
+  		lng:this.props.length
+  	};
+  }
+
   static defaultProps = {
-    center: {lat: 59.95, lng: 30.33},
+    center: {lat: 41.881832, lng: -87.623177},
     zoom: 15
   };
-
-  
 
   /*
 	The render function:
@@ -39,8 +46,8 @@ class MapContainer extends React.Component {
         defaultZoom={this.props.zoom}
       >
         <AddMarker 
-          lat={59.955413} 
-          lng={30.337844} 
+          lat={this.state.lat} 
+          lng={this.state.lng} 
           text={'Tommy'} 
         />
       </GoogleMapReact>

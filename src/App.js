@@ -11,7 +11,7 @@ class App extends Component {
 	    		<p>DragonFlyTracer</p>
 	    	</div>
 	    	<div className="google-maps">
-	    		<MapContainer/>
+	    		<MapContainer latitude={3} length={5}/>
 	    	</div>
 	    	<div className="description">
 	    		<p>Some description</p>
